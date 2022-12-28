@@ -1,6 +1,8 @@
 #pragma once
 
-#include "WhizzEngine/Core/Application.h"
+#include "WhizzEngine/Core/GameManager.h"
 #include "WhizzEngine/Core/Log.h"
 
-#include "WhizzEngine/Core/EntryPoint.h"
+#include "WhizzEngine/Rendering/VertexArray.h"
+#include "WhizzEngine/Rendering/Buffer.h"
+#include "WhizzEngine/Rendering/Shader.h"

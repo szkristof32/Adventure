@@ -1,6 +1,6 @@
 #include "Window.h"
 
-#include "Application.h"
+#include "GameManager.h"
 #include "Log.h"
 #include "WhizzEngine/Events/Event.h"
 #include "WhizzEngine/Events/ApplicationEvent.h"
@@ -87,14 +87,14 @@ namespace WhizzEngine
 			data.Height = height;
 
 			WindowResizeEvent event(width, height);
-			Application::Get()->OnEvent(event);
+			GameManager::OnEvent(event);
 		});
 
 		glfwSetWindowCloseCallback(m_Window, [](GLFWwindow* window)
 		{
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 			WindowCloseEvent event;
-			Application::Get()->OnEvent(event);
+			GameManager::OnEvent(event);
 		});
 
 		glfwSetKeyCallback(m_Window, [](GLFWwindow* window, int key, int scancode, int action, int mods)
@@ -106,19 +106,19 @@ namespace WhizzEngine
 				case GLFW_PRESS:
 				{
 					KeyPressedEvent event(key, 0);
-					Application::Get()->OnEvent(event);
+					GameManager::OnEvent(event);
 					break;
 				}
 				case GLFW_RELEASE:
 				{
 					KeyReleasedEvent event(key);
-					Application::Get()->OnEvent(event);
+					GameManager::OnEvent(event);
 					break;
 				}
 				case GLFW_REPEAT:
 				{
 					KeyPressedEvent event(key, true);
-					Application::Get()->OnEvent(event);
+					GameManager::OnEvent(event);
 					break;
 				}
 			}
@@ -129,7 +129,7 @@ namespace WhizzEngine
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 
 			KeyTypedEvent event(keycode);
-			Application::Get()->OnEvent(event);
+			GameManager::OnEvent(event);
 		});
 
 		glfwSetMouseButtonCallback(m_Window, [](GLFWwindow* window, int button, int action, int mods)
@@ -141,13 +141,13 @@ namespace WhizzEngine
 				case GLFW_PRESS:
 				{
 					MouseButtonPressedEvent event(button);
-					Application::Get()->OnEvent(event);
+					GameManager::OnEvent(event);
 					break;
 				}
 				case GLFW_RELEASE:
 				{
 					MouseButtonReleasedEvent event(button);
-					Application::Get()->OnEvent(event);
+					GameManager::OnEvent(event);
 					break;
 				}
 			}
@@ -158,7 +158,7 @@ namespace WhizzEngine
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 
 			MouseScrolledEvent event((float)xOffset, (float)yOffset);
-			Application::Get()->OnEvent(event);
+			GameManager::OnEvent(event);
 		});
 
 		glfwSetCursorPosCallback(m_Window, [](GLFWwindow* window, double xPos, double yPos)
@@ -166,7 +166,7 @@ namespace WhizzEngine
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 
 			MouseMovedEvent event((float)xPos, (float)yPos);
-			Application::Get()->OnEvent(event);
+			GameManager::OnEvent(event);
 		});
 	}
 
@@ -213,7 +213,6 @@ namespace WhizzEngine
 
 	void Window::OnEvent(Event& e)
 	{
-		WZ_CORE_INFO(e);
 	}
 
 }

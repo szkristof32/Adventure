@@ -7,19 +7,22 @@
     <Filter Include="WhizzEngine\Core">
       <UniqueIdentifier>{CFE4AD23-BBDD-CC75-E40F-B2FAD067AC81}</UniqueIdentifier>
     </Filter>
+    <Filter Include="WhizzEngine\Events">
+      <UniqueIdentifier>{1B66DCCB-074A-9D21-70AA-97745CAD87A3}</UniqueIdentifier>
+    </Filter>
     <Filter Include="WhizzEngine\Rendering">
       <UniqueIdentifier>{246CB69C-90D8-7197-59CC-09F5C5F793FF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="WhizzEngine\Utils">
+      <UniqueIdentifier>{B7D0B29A-23E7-B030-6C5E-3C52D8B381B8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\WhizzEngine.h" />
-    <ClInclude Include="src\WhizzEngine\Core\Application.h">
-      <Filter>WhizzEngine\Core</Filter>
-    </ClInclude>
     <ClInclude Include="src\WhizzEngine\Core\Core.h">
       <Filter>WhizzEngine\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\WhizzEngine\Core\EntryPoint.h">
+    <ClInclude Include="src\WhizzEngine\Core\GameManager.h">
       <Filter>WhizzEngine\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\WhizzEngine\Core\Log.h">
@@ -27,6 +30,18 @@
     </ClInclude>
     <ClInclude Include="src\WhizzEngine\Core\Window.h">
       <Filter>WhizzEngine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\WhizzEngine\Events\ApplicationEvent.h">
+      <Filter>WhizzEngine\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\WhizzEngine\Events\Event.h">
+      <Filter>WhizzEngine\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\WhizzEngine\Events\KeyEvent.h">
+      <Filter>WhizzEngine\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\WhizzEngine\Events\MouseEvent.h">
+      <Filter>WhizzEngine\Events</Filter>
     </ClInclude>
     <ClInclude Include="src\WhizzEngine\Rendering\Buffer.h">
       <Filter>WhizzEngine\Rendering</Filter>
@@ -37,13 +52,12 @@
     <ClInclude Include="src\WhizzEngine\Rendering\VertexArray.h">
       <Filter>WhizzEngine\Rendering</Filter>
     </ClInclude>
-    <ClInclude Include="src\WhizzEngine\Events\Event.h" />
-    <ClInclude Include="src\WhizzEngine\Events\ApplicationEvent.h" />
-    <ClInclude Include="src\WhizzEngine\Events\KeyEvent.h" />
-    <ClInclude Include="src\WhizzEngine\Events\MouseEvent.h" />
+    <ClInclude Include="src\WhizzEngine\Utils\FileUtils.h">
+      <Filter>WhizzEngine\Utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\WhizzEngine\Core\Application.cpp">
+    <ClCompile Include="src\WhizzEngine\Core\GameManager.cpp">
       <Filter>WhizzEngine\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\WhizzEngine\Core\Log.cpp">

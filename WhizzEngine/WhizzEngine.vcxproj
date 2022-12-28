@@ -154,9 +154,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\WhizzEngine.h" />
-    <ClInclude Include="src\WhizzEngine\Core\Application.h" />
     <ClInclude Include="src\WhizzEngine\Core\Core.h" />
-    <ClInclude Include="src\WhizzEngine\Core\EntryPoint.h" />
+    <ClInclude Include="src\WhizzEngine\Core\GameManager.h" />
     <ClInclude Include="src\WhizzEngine\Core\Log.h" />
     <ClInclude Include="src\WhizzEngine\Core\Window.h" />
     <ClInclude Include="src\WhizzEngine\Events\ApplicationEvent.h" />
@@ -166,9 +165,10 @@
     <ClInclude Include="src\WhizzEngine\Rendering\Buffer.h" />
     <ClInclude Include="src\WhizzEngine\Rendering\Shader.h" />
     <ClInclude Include="src\WhizzEngine\Rendering\VertexArray.h" />
+    <ClInclude Include="src\WhizzEngine\Utils\FileUtils.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\WhizzEngine\Core\Application.cpp">
+    <ClCompile Include="src\WhizzEngine\Core\GameManager.cpp">
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
