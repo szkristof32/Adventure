@@ -4,12 +4,10 @@ class Game : public WhizzEngine::Application {
 public:
 	Game()
 	{
-
 	}
 
 	~Game()
 	{
-
 	}
 };
 

@@ -15,7 +15,12 @@ project "Game"
 	
 	includedirs
 	{
-		"%{wks.location}/WhizzEngine/src"
+		"%{wks.location}/WhizzEngine/src",
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}",
+		"%{IncludeDir.glm}",
+		"%{IncludeDir.spdlog}",
+		"%{IncludeDir.assimp}"
 	}
 	
 	links

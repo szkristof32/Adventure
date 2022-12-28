@@ -20,7 +20,19 @@ project "WhizzEngine"
 	
 	includedirs
 	{
-		"src"
+		"src",
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}",
+		"%{IncludeDir.glm}",
+		"%{IncludeDir.spdlog}",
+		"%{IncludeDir.assimp}"
+	}
+	
+	links
+	{
+		"GLFW",
+		"Glad",
+		"opengl32.lib"
 	}
 	
 	filter "system:windows"

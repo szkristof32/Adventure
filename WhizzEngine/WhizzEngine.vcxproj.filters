@@ -7,6 +7,9 @@
     <Filter Include="WhizzEngine\Core">
       <UniqueIdentifier>{CFE4AD23-BBDD-CC75-E40F-B2FAD067AC81}</UniqueIdentifier>
     </Filter>
+    <Filter Include="WhizzEngine\Rendering">
+      <UniqueIdentifier>{246CB69C-90D8-7197-59CC-09F5C5F793FF}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\WhizzEngine.h" />
@@ -19,16 +22,44 @@
     <ClInclude Include="src\WhizzEngine\Core\EntryPoint.h">
       <Filter>WhizzEngine\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\WhizzEngine\Rendering\Buffer.h" />
-    <ClInclude Include="src\WhizzEngine\Rendering\Shader.h" />
-    <ClInclude Include="src\WhizzEngine\Rendering\VertexArray.h" />
+    <ClInclude Include="src\WhizzEngine\Core\Log.h">
+      <Filter>WhizzEngine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\WhizzEngine\Core\Window.h">
+      <Filter>WhizzEngine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\WhizzEngine\Rendering\Buffer.h">
+      <Filter>WhizzEngine\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="src\WhizzEngine\Rendering\Shader.h">
+      <Filter>WhizzEngine\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="src\WhizzEngine\Rendering\VertexArray.h">
+      <Filter>WhizzEngine\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="src\WhizzEngine\Events\Event.h" />
+    <ClInclude Include="src\WhizzEngine\Events\ApplicationEvent.h" />
+    <ClInclude Include="src\WhizzEngine\Events\KeyEvent.h" />
+    <ClInclude Include="src\WhizzEngine\Events\MouseEvent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\WhizzEngine\Core\Application.cpp">
       <Filter>WhizzEngine\Core</Filter>
     </ClCompile>
-    <ClCompile Include="src\WhizzEngine\Rendering\Buffer.cpp" />
-    <ClCompile Include="src\WhizzEngine\Rendering\Shader.cpp" />
-    <ClCompile Include="src\WhizzEngine\Rendering\VertexArray.cpp" />
+    <ClCompile Include="src\WhizzEngine\Core\Log.cpp">
+      <Filter>WhizzEngine\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\WhizzEngine\Core\Window.cpp">
+      <Filter>WhizzEngine\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\WhizzEngine\Rendering\Buffer.cpp">
+      <Filter>WhizzEngine\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="src\WhizzEngine\Rendering\Shader.cpp">
+      <Filter>WhizzEngine\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="src\WhizzEngine\Rendering\VertexArray.cpp">
+      <Filter>WhizzEngine\Rendering</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -3,7 +3,8 @@
 #include <GLFW/glfw3.h>
 #include <string>
 
-#include "WhizzEngine/Core/Core.h"
+#include "Core.h"
+#include "WhizzEngine/Events/Event.h"
 
 namespace WhizzEngine
 {
@@ -25,6 +26,8 @@ namespace WhizzEngine
 		float GetAspectRatio() { return (float)m_Data.Width / (float)m_Data.Height; }
 		bool IsFullscreen() { return m_Fullscreen; }
 		void GoFullscreen(bool fullscreen);
+
+		void OnEvent(Event& e);
 	private:
 		void SetWindowHints(const GLFWvidmode* vidMode);
 		void NewWindow(const GLFWvidmode* vidMode);

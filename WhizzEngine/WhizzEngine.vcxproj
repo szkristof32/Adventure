@@ -15,7 +15,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{D871786B-6C0A-435C-BFF5-FF816713AF7A}</ProjectGuid>
+    <ProjectGuid>{17DAD598-838F-4E8E-0C84-486578384592}</ProjectGuid>
     <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>WhizzEngine</RootNamespace>
@@ -79,7 +79,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>GLFW_INCLUDE_NONE;WZ_PLATFORM_WINDOWS;WZ_BUILD_DLL;WZ_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\GLFW\include;vendor\Glad\include;vendor\glm;vendor\spdlog\include;vendor\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <MinimalRebuild>false</MinimalRebuild>
@@ -91,6 +91,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ImportLibrary>..\bin\Debug-windows-x86_64\WhizzEngine\WhizzEngine.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
@@ -102,7 +103,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>GLFW_INCLUDE_NONE;WZ_PLATFORM_WINDOWS;WZ_BUILD_DLL;WZ_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\GLFW\include;vendor\Glad\include;vendor\glm;vendor\spdlog\include;vendor\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -117,6 +118,7 @@
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ImportLibrary>..\bin\Release-windows-x86_64\WhizzEngine\WhizzEngine.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
@@ -128,7 +130,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>GLFW_INCLUDE_NONE;WZ_PLATFORM_WINDOWS;WZ_BUILD_DLL;WZ_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;vendor\GLFW\include;vendor\Glad\include;vendor\glm;vendor\spdlog\include;vendor\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -143,6 +145,7 @@
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ImportLibrary>..\bin\Dist-windows-x86_64\WhizzEngine\WhizzEngine.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
@@ -154,6 +157,12 @@
     <ClInclude Include="src\WhizzEngine\Core\Application.h" />
     <ClInclude Include="src\WhizzEngine\Core\Core.h" />
     <ClInclude Include="src\WhizzEngine\Core\EntryPoint.h" />
+    <ClInclude Include="src\WhizzEngine\Core\Log.h" />
+    <ClInclude Include="src\WhizzEngine\Core\Window.h" />
+    <ClInclude Include="src\WhizzEngine\Events\ApplicationEvent.h" />
+    <ClInclude Include="src\WhizzEngine\Events\Event.h" />
+    <ClInclude Include="src\WhizzEngine\Events\KeyEvent.h" />
+    <ClInclude Include="src\WhizzEngine\Events\MouseEvent.h" />
     <ClInclude Include="src\WhizzEngine\Rendering\Buffer.h" />
     <ClInclude Include="src\WhizzEngine\Rendering\Shader.h" />
     <ClInclude Include="src\WhizzEngine\Rendering\VertexArray.h" />
@@ -164,9 +173,39 @@
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
-    <ClCompile Include="src\WhizzEngine\Rendering\Buffer.cpp" />
-    <ClCompile Include="src\WhizzEngine\Rendering\Shader.cpp" />
-    <ClCompile Include="src\WhizzEngine\Rendering\VertexArray.cpp" />
+    <ClCompile Include="src\WhizzEngine\Core\Log.cpp">
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <ClCompile Include="src\WhizzEngine\Core\Window.cpp">
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <ClCompile Include="src\WhizzEngine\Rendering\Buffer.cpp">
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <ClCompile Include="src\WhizzEngine\Rendering\Shader.cpp">
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+    <ClCompile Include="src\WhizzEngine\Rendering\VertexArray.cpp">
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+      <ExternalWarningLevel>Level3</ExternalWarningLevel>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">
+      <Project>{154B857C-0182-860D-AA6E-6C109684020F}</Project>
+    </ProjectReference>
+    <ProjectReference Include="vendor\Glad\Glad.vcxproj">
+      <Project>{BDD6857C-A90D-870D-52FA-6C103E10030F}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

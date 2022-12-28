@@ -1,10 +1,14 @@
 #include "Window.h"
 
-#include "WhizzEngine/Core/Application.h"
-#include "WhizzEngine/Events/Events.h"
-#include "WhizzEngine/Core/Log.h"
+#include "Application.h"
+#include "Log.h"
+#include "WhizzEngine/Events/Event.h"
+#include "WhizzEngine/Events/ApplicationEvent.h"
+#include "WhizzEngine/Events/KeyEvent.h"
+#include "WhizzEngine/Events/MouseEvent.h"
 
 #include <glad/glad.h>
+#include <iostream>
 
 namespace WhizzEngine
 {
@@ -64,9 +68,9 @@ namespace WhizzEngine
 			return;
 		}
 		WZ_CORE_INFO("OpenGL Info:");
-		WZ_CORE_INFO("  Vendor: {0}", glGetString(GL_VENDOR));
-		WZ_CORE_INFO("  Renderer: {0}", glGetString(GL_RENDERER));
-		WZ_CORE_INFO("  Version: {0}", glGetString(GL_VERSION));
+		WZ_CORE_INFO("  Vendor: {0}", (const char*)glGetString(GL_VENDOR));
+		WZ_CORE_INFO("  Renderer: {0}", (const char*)glGetString(GL_RENDERER));
+		WZ_CORE_INFO("  Version: {0}", (const char*)glGetString(GL_VERSION));
 
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		glfwSetWindowSizeLimits(m_Window, GLFW_DONT_CARE, GLFW_DONT_CARE, GLFW_DONT_CARE, GLFW_DONT_CARE);
@@ -77,28 +81,28 @@ namespace WhizzEngine
 	void Window::CreateEventCallbacks()
 	{
 		glfwSetWindowSizeCallback(m_Window, [](GLFWwindow* window, int width, int height)
-			{
-				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
-				data.Width = width;
-				data.Height = height;
+		{
+			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+			data.Width = width;
+			data.Height = height;
 
-				WindowResizeEvent event(width, height);
-				Application::Get()->OnEvent(event);
-			});
+			WindowResizeEvent event(width, height);
+			Application::Get()->OnEvent(event);
+		});
 
 		glfwSetWindowCloseCallback(m_Window, [](GLFWwindow* window)
-			{
-				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
-				WindowCloseEvent event;
-				Application::Get()->OnEvent(event);
-			});
+		{
+			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+			WindowCloseEvent event;
+			Application::Get()->OnEvent(event);
+		});
 
 		glfwSetKeyCallback(m_Window, [](GLFWwindow* window, int key, int scancode, int action, int mods)
-			{
-				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+		{
+			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 
-				switch (action)
-				{
+			switch (action)
+			{
 				case GLFW_PRESS:
 				{
 					KeyPressedEvent event(key, 0);
@@ -117,23 +121,23 @@ namespace WhizzEngine
 					Application::Get()->OnEvent(event);
 					break;
 				}
-				}
-			});
+			}
+		});
 
 		glfwSetCharCallback(m_Window, [](GLFWwindow* window, unsigned int keycode)
-			{
-				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+		{
+			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 
-				KeyTypedEvent event(keycode);
-				Application::Get()->OnEvent(event);
-			});
+			KeyTypedEvent event(keycode);
+			Application::Get()->OnEvent(event);
+		});
 
 		glfwSetMouseButtonCallback(m_Window, [](GLFWwindow* window, int button, int action, int mods)
-			{
-				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+		{
+			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 
-				switch (action)
-				{
+			switch (action)
+			{
 				case GLFW_PRESS:
 				{
 					MouseButtonPressedEvent event(button);
@@ -146,24 +150,24 @@ namespace WhizzEngine
 					Application::Get()->OnEvent(event);
 					break;
 				}
-				}
-			});
+			}
+		});
 
 		glfwSetScrollCallback(m_Window, [](GLFWwindow* window, double xOffset, double yOffset)
-			{
-				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+		{
+			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 
-				MouseScrolledEvent event((float)xOffset, (float)yOffset);
-				Application::Get()->OnEvent(event);
-			});
+			MouseScrolledEvent event((float)xOffset, (float)yOffset);
+			Application::Get()->OnEvent(event);
+		});
 
 		glfwSetCursorPosCallback(m_Window, [](GLFWwindow* window, double xPos, double yPos)
-			{
-				WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+		{
+			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 
-				MouseMovedEvent event((float)xPos, (float)yPos);
-				Application::Get()->OnEvent(event);
-			});
+			MouseMovedEvent event((float)xPos, (float)yPos);
+			Application::Get()->OnEvent(event);
+		});
 	}
 
 	void Window::OnUpdate()
@@ -205,6 +209,11 @@ namespace WhizzEngine
 	{
 		glfwSetWindowMonitor(m_Window, NULL, 0, 0, m_DesiredWidth, m_DesiredHeight, vidMode->refreshRate);
 		glfwSetWindowPos(m_Window, (vidMode->width - m_DesiredWidth) / 2, (vidMode->height - m_DesiredHeight) / 2);
+	}
+
+	void Window::OnEvent(Event& e)
+	{
+		WZ_CORE_INFO(e);
 	}
 
 }

@@ -60,30 +60,28 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <PostBuildEvent>
-      <Command>"$(ProjectDir)bin/premake5" vs2019 --file="$(SolutionDir)premake5.lua"</Command>
+      <Command>"$(ProjectDir)bin/premake5" vs2022 --file="$(SolutionDir)premake5.lua"</Command>
       <Message>Regenerating project files with Premake5!</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <PostBuildEvent>
-      <Command>"$(ProjectDir)bin/premake5" vs2019 --file="$(SolutionDir)premake5.lua"</Command>
+      <Command>"$(ProjectDir)bin/premake5" vs2022 --file="$(SolutionDir)premake5.lua"</Command>
       <Message>Regenerating project files with Premake5!</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
     <PostBuildEvent>
-      <Command>"$(ProjectDir)bin/premake5" vs2019 --file="$(SolutionDir)premake5.lua"</Command>
+      <Command>"$(ProjectDir)bin/premake5" vs2022 --file="$(SolutionDir)premake5.lua"</Command>
       <Message>Regenerating project files with Premake5!</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include="..\..\Hazel\premake5.lua" />
-    <None Include="..\..\Hazel\vendor\GLFW\premake5.lua" />
-    <None Include="..\..\Hazel\vendor\Glad\premake5.lua" />
-    <None Include="..\..\Hazel\vendor\imgui\premake5.lua" />
-    <None Include="..\..\Hazel\vendor\yaml-cpp\premake5.lua" />
-    <None Include="..\..\Hazelnut\premake5.lua" />
-    <None Include="..\..\Sandbox\premake5.lua" />
+    <None Include="..\..\Game\premake5.lua" />
+    <None Include="..\..\WhizzEngine\premake5.lua" />
+    <None Include="..\..\WhizzEngine\vendor\GLFW\premake5.lua" />
+    <None Include="..\..\WhizzEngine\vendor\Glad\premake5.lua" />
+    <None Include="..\..\WhizzEngine\vendor\assimp\premake5.lua" />
     <None Include="..\..\premake5.lua" />
     <None Include="premake5.lua" />
   </ItemGroup>
