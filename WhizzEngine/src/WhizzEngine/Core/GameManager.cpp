@@ -6,21 +6,25 @@ namespace WhizzEngine {
 
 	Window* GameManager::s_Window;
 	bool GameManager::s_CloseFlag = false;
+	MasterRenderer* GameManager::s_Renderer;
 
 	void GameManager::Init()
 	{
 		Log::Init();
 		s_Window = new Window(1600, 900, 120, "Whizz Engine", false, true);
+		s_Renderer = new MasterRenderer();
 	}
 
-	void GameManager::Update()
+	void GameManager::Update(Ref<VertexArray> vao)
 	{
+		s_Renderer->Render(vao);
 		s_Window->OnUpdate();
 	}
 
 	void GameManager::CleanUp()
 	{
 		delete s_Window;
+		delete s_Renderer;
 	}
 
 	bool GameManager::ShouldClose()

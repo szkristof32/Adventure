@@ -1,5 +1,7 @@
 #include <WhizzEngine.h>
 
+#include "TestRenderer.h"
+
 using namespace WhizzEngine;
 
 int main(int argc, char** argv)
@@ -30,14 +32,11 @@ int main(int argc, char** argv)
 
 	Ref<Shader> shader = CreateRef<Shader>("res/shaders/basicShader.glsl");
 
+	GameManager::GetRenderer()->AddRenderer(CreateRef<TestRenderer>(shader));
+
 	while (!GameManager::ShouldClose())
 	{
-		shader->Start();
-		vao->Bind();
-		vao->Draw();
-		vao->Unbind();
-		shader->Stop();
-		GameManager::Update();
+		GameManager::Update(vao);
 	}
 
 	GameManager::CleanUp();

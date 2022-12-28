@@ -55,6 +55,7 @@
     <ClInclude Include="src\WhizzEngine\Utils\FileUtils.h">
       <Filter>WhizzEngine\Utils</Filter>
     </ClInclude>
+    <ClInclude Include="src\WhizzEngine\Rendering\MasterRenderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\WhizzEngine\Core\GameManager.cpp">
@@ -75,5 +76,6 @@
     <ClCompile Include="src\WhizzEngine\Rendering\VertexArray.cpp">
       <Filter>WhizzEngine\Rendering</Filter>
     </ClCompile>
+    <ClCompile Include="src\WhizzEngine\Rendering\MasterRenderer.cpp" />
   </ItemGroup>
 </Project>

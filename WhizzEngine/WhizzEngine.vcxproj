@@ -163,6 +163,7 @@
     <ClInclude Include="src\WhizzEngine\Events\KeyEvent.h" />
     <ClInclude Include="src\WhizzEngine\Events\MouseEvent.h" />
     <ClInclude Include="src\WhizzEngine\Rendering\Buffer.h" />
+    <ClInclude Include="src\WhizzEngine\Rendering\MasterRenderer.h" />
     <ClInclude Include="src\WhizzEngine\Rendering\Shader.h" />
     <ClInclude Include="src\WhizzEngine\Rendering\VertexArray.h" />
     <ClInclude Include="src\WhizzEngine\Utils\FileUtils.h" />
@@ -188,6 +189,7 @@
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
     </ClCompile>
+    <ClCompile Include="src\WhizzEngine\Rendering\MasterRenderer.cpp" />
     <ClCompile Include="src\WhizzEngine\Rendering\Shader.cpp">
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
       <ExternalWarningLevel>Level3</ExternalWarningLevel>
